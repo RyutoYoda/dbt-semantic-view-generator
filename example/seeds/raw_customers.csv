@@ -1,0 +1,4 @@
+customer_id,customer_name,email,total_orders,total_revenue,created_at
+1,John Doe,john@example.com,5,1500.00,2024-01-15
+2,Jane Smith,jane@example.com,3,890.50,2024-02-20
+3,Bob Johnson,bob@example.com,8,2340.75,2024-01-10

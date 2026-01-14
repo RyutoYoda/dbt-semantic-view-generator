@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: customers
+    description: "顧客マスタデータ"
+    columns:
+      - name: customer_id
+        description: "顧客ID（主キー）"
+      - name: customer_name
+        description: "顧客名"
+      - name: email
+        description: "メールアドレス"
+      - name: total_orders
+        description: "累計注文数"
+      - name: total_revenue
+        description: "累計売上金額"
+      - name: created_at
+        description: "顧客登録日時"

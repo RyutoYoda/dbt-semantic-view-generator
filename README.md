@@ -18,6 +18,26 @@ GPT-4を使用してdbtモデルを解析し、Snowflake Cortex Analystで自然
 - **dbtベストプラクティス**: `ref()`を使用した適切な依存関係追跡
 - **複数プロジェクト対応**: `models/*/semantic/`パターンで複数プロジェクトを自動検出
 
+## 前提条件
+
+### dbt_semantic_viewパッケージのインストール
+
+このツールを使用する前に、dbtプロジェクトに`dbt_semantic_view`パッケージをインストールする必要があります。
+
+`packages.yml`に以下を追加：
+
+```yaml
+packages:
+  - package: Snowflake-Labs/dbt_semantic_view
+    version: 1.0.3
+```
+
+インストール：
+
+```bash
+dbt deps
+```
+
 ## クイックスタート
 
 ### 1. ディレクトリ構造の準備
@@ -272,6 +292,7 @@ columns:
 - Python 3.8以上
 - dbt-core 1.0以上
 - dbt-snowflake
+- **dbt_semantic_view パッケージ 1.0.3以上** （必須）
 - OpenAI APIキー
 - Snowflake（Cortex Analyst有効化済み）
 
@@ -279,7 +300,7 @@ columns:
 
 ```bash
 # リポジトリをクローン
-git clone https://github.com/your-org/dbt-semantic-view-generator.git
+git clone https://github.com/RyutoYoda/dbt-semantic-view-generator.git
 
 # 依存関係をインストール
 pip install -r requirements.txt
@@ -288,6 +309,23 @@ pip install -r requirements.txt
 cp -r scripts your-dbt-project/
 cp -r .github/workflows your-dbt-project/.github/
 ```
+
+## サンプルプロジェクト
+
+`example/`ディレクトリにサンプルdbtプロジェクトが含まれています。
+
+```bash
+# サンプルプロジェクトで試す
+cd example
+dbt deps
+
+# セマンティックビューを生成
+export OPENAI_API_KEY="your-api-key"
+cd ..
+python scripts/generate_semantic_view.py
+```
+
+詳細は[example/README.md](example/README.md)を参照してください。
 
 ## コントリビューション
 
