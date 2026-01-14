@@ -21,7 +21,7 @@ GPT-4を使用してdbtモデルを解析し、Snowflake Cortex Analystで自然
 
 ### dbt_semantic_viewパッケージのインストール
 
-このツールを使用する前に、dbtプロジェクトに`dbt_semantic_view`パッケージをインストールする必要があります。
+このツールを使用する前に、dbtプロジェクトに [dbt_semantic_view](https://hub.getdbt.com/Snowflake-Labs/dbt_semantic_view/latest/)パッケージをインストールする必要があります。
 
 `packages.yml`に以下を追加：
 
@@ -284,7 +284,7 @@ columns:
 - Python 3.8以上
 - dbt-core 1.0以上
 - dbt-snowflake
-- **dbt_semantic_view パッケージ 1.0.3以上** （必須）
+- **dbt_semantic_view 
 - OpenAI APIキー
 - Snowflake（Cortex Analyst有効化済み）
 
