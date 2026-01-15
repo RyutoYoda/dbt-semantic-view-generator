@@ -1,18 +1,10 @@
 #!/usr/bin/env python3
-"""
-Semantic View Generator for dbt models
-
-This script analyzes dbt SQL models and their YAML configurations,
-then generates Snowflake Semantic Views using OpenAI API.
-"""
-
 import os
 import re
 import yaml
 from pathlib import Path
 from openai import OpenAI
 
-# Initialize OpenAI client
 client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 
 def parse_sql_file(file_path):
@@ -20,18 +12,15 @@ def parse_sql_file(file_path):
     with open(file_path, 'r', encoding='utf-8') as f:
         content = f.read()
 
-    # Extract final SELECT columns
     select_pattern = r'select\s+(.*?)\s+from\s+.*?(?:left\s+join|inner\s+join|$)'
     matches = re.findall(select_pattern, content, re.IGNORECASE | re.DOTALL)
 
     columns = []
     if matches:
-        # Get the last select (final output)
+
         final_select = matches[-1]
-        # Parse column names
         for line in final_select.split(','):
             line = line.strip()
-            # Extract column name (handle aliases)
             if ' as ' in line.lower():
                 col_name = line.lower().split(' as ')[-1].strip()
             else:
@@ -66,7 +55,6 @@ def parse_model_yml(yml_path):
 def classify_columns_with_gpt(columns, sql_content, source_model_name, column_descriptions=None):
     """Use GPT to classify columns as FACTS or DIMENSIONS."""
 
-    # Build column descriptions section if available
     descriptions_section = ""
     if column_descriptions:
         descriptions_section = "\n\nColumn descriptions from dbt YML:\n"
