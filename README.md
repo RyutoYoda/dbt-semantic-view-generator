@@ -236,7 +236,7 @@ models/
 
 ### 1. 意味のあるカラム名を使用
 
-GPT-4はカラム名を使って分類します。明確な名前を使用してください：
+GPTはカラム名を使って分類します。明確な名前を使用してください：
 
 - 良い例: `total_revenue`, `order_count`, `customer_id`
 - 避ける: `col1`, `val`, `x`
@@ -281,40 +281,9 @@ columns:
 - Python 3.8以上
 - dbt-core 1.0以上
 - dbt-snowflake
-- **dbt_semantic_view 
+- dbt_semantic_view 
 - OpenAI APIキー
 - Snowflake（Cortex Analyst有効化済み）
-
-## インストール
-
-```bash
-# リポジトリをクローン
-git clone https://github.com/RyutoYoda/dbt-semantic-view-generator.git
-
-# 依存関係をインストール
-pip install -r requirements.txt
-
-# dbtプロジェクトにコピー
-cp -r scripts your-dbt-project/
-cp -r .github/workflows your-dbt-project/.github/
-```
-
-## サンプルプロジェクト
-
-`example/`ディレクトリにサンプルdbtプロジェクトが含まれています。
-
-```bash
-# サンプルプロジェクトで試す
-cd example
-dbt deps
-
-# セマンティックビューを生成
-export OPENAI_API_KEY="your-api-key"
-cd ..
-python scripts/generate_semantic_view.py
-```
-
-詳細は[example/README.md](example/README.md)を参照してください。
 
 ## コントリビューション
 
