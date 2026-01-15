@@ -299,4 +299,4 @@ columns:
 - [Snowflake Semantic Views](https://docs.snowflake.com/en/user-guide/semantic-views)
 - [Snowflake Cortex Analyst](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-analyst)
 - [dbt](https://www.getdbt.com/)
-- [OpenAI GPT-4](https://openai.com/)
+- [OpenAI GPT](https://openai.com/)
