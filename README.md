@@ -50,8 +50,8 @@ mkdir -p models/your_project/semantic
 models/your_project/
 └── semantic/                      # セマンティックビュー対象モデル置き場
     ├── customers.sql              # SQLモデル
-    ├── customers.yml              # (オプション) カラム説明
-    └── semantic_views/            # 自動生成されるフォルダ（手動作成不要）
+    ├── customers.yml              # カラム説明
+    └── semantic_views/            # 自動生成されるフォルダ
         └── customers_semantic_view.sql
 ```
 
@@ -109,7 +109,7 @@ SELECT
 FROM {{ ref('stg_customers') }}
 ```
 
-### ステップ2: カラム説明の追加（オプション）
+### ステップ2: カラム説明の追加
 
 同名のYMLファイルを作成してカラム説明を提供：
 
@@ -256,7 +256,7 @@ columns:
 セマンティックビューは整備されたデータで最も効果的：
 
 - staging → intermediate → martのレイヤー構造を使用
-- martモデルにセマンティックビューを適用（stagingではなく）
+- martモデルにセマンティックビューを適用
 - 適切なデータ型と制約を確保
 
 ### 4. 生成されたビューをレビュー
@@ -273,7 +273,7 @@ columns:
 
 **解決策:**
 1. `models/<project>/semantic/`フォルダが存在するか確認
-2. SQLファイルが`semantic/`直下にあるか確認（ネストしていない）
+2. SQLファイルが`semantic/`直下にあるか確認
 3. `OPENAI_API_KEY`が正しく設定されているか確認
 
 ## 必要要件
