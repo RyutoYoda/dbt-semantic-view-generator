@@ -6,7 +6,7 @@
 
 dbt SQLモデルからSnowflake Semantic Viewを自動生成するツールです。
 
-GPT-4を使用してdbtモデルを解析し、Snowflake Cortex Analystで自然言語クエリを可能にするセマンティックビューを生成します。
+GPTを使用してdbtモデルを解析し、Snowflake Cortex Analystで自然言語クエリを可能にするセマンティックビューを生成します。
 
 ## 特徴
 
